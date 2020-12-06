@@ -128,5 +128,25 @@ namespace TicTacToeWorkShop
             Random random = new Random();
             return random.Next(0, 2);
         }
+
+        /// <summary>
+        /// Determines whether the specified board is winner.
+        /// </summary>
+        /// <param name="board">The board.</param>
+        /// <param name="symbol">The symbol.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified board is winner; otherwise, <c>false</c>.
+        /// </returns>
+        public bool IsWinner(char[] board, char symbol)
+        {
+            return (board[1] == symbol && board[2] == symbol && board[3] == symbol) ||
+                   (board[4] == symbol && board[5] == symbol && board[6] == symbol) ||
+                   (board[7] == symbol && board[8] == symbol && board[9] == symbol) ||
+                   (board[1] == symbol && board[4] == symbol && board[7] == symbol) ||
+                   (board[2] == symbol && board[5] == symbol && board[8] == symbol) ||
+                   (board[3] == symbol && board[6] == symbol && board[9] == symbol) ||
+                   (board[1] == symbol && board[5] == symbol && board[9] == symbol) ||
+                   (board[3] == symbol && board[5] == symbol && board[7] == symbol);
+        }
     }
 }
