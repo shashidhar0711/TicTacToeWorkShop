@@ -1,4 +1,5 @@
 ﻿using System;
+using static TicTacToeWorkShop.TicTacToeGameRepo;
 
 namespace TicTacToeWorkShop
 {
@@ -19,6 +20,7 @@ namespace TicTacToeWorkShop
             //Console.WriteLine("Enter user index: ");
             //int userIndex = Convert.ToInt32(Console.ReadLine());
             TicTacToeGameRepo.MakeMove(board, 5, userLetter);
+            Player player = GetWhoStartsFirst();
         }
     }
 }
