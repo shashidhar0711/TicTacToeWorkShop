@@ -14,6 +14,8 @@ namespace TicTacToeWorkShop
             TicTacToeGameRepo ticTacToeRepo = new TicTacToeGameRepo();
             char[] board = ticTacToeRepo.CreateTicTacToeBoard();
             char userChoice = ticTacToeRepo.ChooseUserChoice();
+            ticTacToeRepo.ShowBoard(board);
+            ticTacToeRepo.GetUserDesiredMove(board);
         }
     }
 }
