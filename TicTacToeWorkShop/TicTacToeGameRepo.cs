@@ -6,6 +6,17 @@ namespace TicTacToeWorkShop
 {
     public class TicTacToeGameRepo
     {
+        /// Constants
+        public const int HEAD = 0;
+        public const int TAIL = 1;
+        /// <summary>
+        /// Enumeration of player
+        /// </summary>
+        public enum Player
+        {
+            USER, COMPUTER
+        };
+
         /// <summary>
         /// Creates the tic tac toe board.
         /// </summary>
@@ -94,6 +105,28 @@ namespace TicTacToeWorkShop
             {
                 board[index] = letter;
             }
+        }
+
+        /// <summary>
+        /// Gets the who starts first.
+        /// </summary>
+        /// <returns></returns>
+        public static Player GetWhoStartsFirst()
+        {
+            int toss = RandomCheck(2);
+            Console.WriteLine("Random Toss is : "+toss);
+            return (toss == HEAD) ? Player.COMPUTER : Player.COMPUTER;
+        }
+
+        /// <summary>
+        /// Randoms the check.
+        /// </summary>
+        /// <param name="userchoice">The userchoice.</param>
+        /// <returns></returns>
+        public static int RandomCheck(int userchoice)
+        {
+            Random random = new Random();
+            return random.Next(0, 2);
         }
     }
 }
