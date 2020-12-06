@@ -13,6 +13,7 @@ namespace TicTacToeWorkShop
             Console.WriteLine("Welcome to tictactoe workshop");
             TicTacToeGameRepo ticTacToeRepo = new TicTacToeGameRepo();
             char[] board = ticTacToeRepo.CreateTicTacToeBoard();
+            char userChoice = ticTacToeRepo.ChooseUserChoice();
         }
     }
 }
