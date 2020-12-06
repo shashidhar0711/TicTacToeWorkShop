@@ -13,9 +13,12 @@ namespace TicTacToeWorkShop
             Console.WriteLine("Welcome to tictactoe workshop");
             TicTacToeGameRepo ticTacToeRepo = new TicTacToeGameRepo();
             char[] board = ticTacToeRepo.CreateTicTacToeBoard();
-            char userChoice = ticTacToeRepo.ChooseUserChoice();
+            char userLetter = ticTacToeRepo.ChooseUserChoice();
             ticTacToeRepo.ShowBoard(board);
             ticTacToeRepo.GetUserDesiredMove(board);
+            //Console.WriteLine("Enter user index: ");
+            //int userIndex = Convert.ToInt32(Console.ReadLine());
+            TicTacToeGameRepo.MakeMove(board, 5, userLetter);
         }
     }
 }

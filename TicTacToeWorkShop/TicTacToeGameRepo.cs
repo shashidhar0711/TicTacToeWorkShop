@@ -80,5 +80,20 @@ namespace TicTacToeWorkShop
         {
             return board[index] == ' ';
         }
+
+        /// <summary>
+        /// Makes the move.
+        /// </summary>
+        /// <param name="board">The board.</param>
+        /// <param name="index">The index.</param>
+        /// <param name="letter">The letter.</param>
+        public static void MakeMove(char[] board, int index, char letter)
+        {
+            bool isSpaceFree = IsSpaceFree(board, index);
+            if (isSpaceFree)
+            {
+                board[index] = letter;
+            }
+        }
     }
 }
