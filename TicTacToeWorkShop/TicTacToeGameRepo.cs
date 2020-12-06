@@ -19,5 +19,16 @@ namespace TicTacToeWorkShop
             }
             return board;
         }
+
+        /// <summary>
+        /// Chooses the user choice.
+        /// </summary>
+        /// <returns></returns>
+        public char ChooseUserChoice()
+        {
+            Console.WriteLine("Choose your letter: ");
+            string userChoice = Console.ReadLine();
+            return char.ToUpper(userChoice[0]);
+        }
     }
 }
