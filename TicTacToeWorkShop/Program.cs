@@ -11,6 +11,8 @@ namespace TicTacToeWorkShop
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to tictactoe workshop");
+            TicTacToeGameRepo ticTacToeRepo = new TicTacToeGameRepo();
+            char[] board = ticTacToeRepo.CreateTicTacToeBoard();
         }
     }
 }
