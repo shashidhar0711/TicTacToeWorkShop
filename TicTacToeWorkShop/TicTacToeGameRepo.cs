@@ -155,12 +155,17 @@ namespace TicTacToeWorkShop
         /// <param name="board">The board.</param>
         /// <param name="computerLetter">The computer letter.</param>
         /// <returns></returns>
-        public int GetComputerMove(char[] board, char computerLetter)
+        public int GetComputerMove(char[] board, char computerLetter, char userLetter)
         {
             int winningMove = GetWinningMove(board, computerLetter);
             if (winningMove != 0)
             {
                 return winningMove;
+            }
+            int userWinningMove = GetWinningMove(board, userLetter);
+            if (userWinningMove != 0)
+            {
+                return userWinningMove;
             }
             return 0;
         }
