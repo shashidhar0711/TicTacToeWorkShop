@@ -18,8 +18,8 @@ namespace TicTacToeWorkShop
             ticTacToeRepo.GetUserDesiredMove(board);
             Player player = GetWhoStartsFirst();
             char userLetter = ticTacToeRepo.ChooseUserChoice();
-            Console.WriteLine("Check if won "+ ticTacToeRepo.IsWinner(board,userLetter));
             char computerLetter = (userLetter == 'X') ? 'O' : 'X';
+            Console.WriteLine("Check if won " + ticTacToeRepo.IsWinner(board, userLetter));
             int computerMove = ticTacToeRepo.GetComputerMove(board, computerLetter, userLetter);
         }
     }

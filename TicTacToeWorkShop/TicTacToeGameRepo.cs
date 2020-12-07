@@ -9,6 +9,7 @@ namespace TicTacToeWorkShop
         /// Constants
         public const int HEAD = 0;
         public const int TAIL = 1;
+        private static readonly char computerLetter;
         /// <summary>
         /// Enumeration of player
         /// </summary>
@@ -169,6 +170,15 @@ namespace TicTacToeWorkShop
             }
             int[] cornerMoves = { 1, 3, 7, 9 };
             int computerMove = GetRandomMoveFromList(board, cornerMoves);
+            if (computerMove != 0)
+            {
+                return computerMove;
+            }
+            // Center move
+            if (IsSpaceFree(board, 5)) 
+                return 5;
+            int[] sideMoves = { 2, 4, 6, 8 };
+            computerMove = GetRandomMoveFromList(board, sideMoves);
             if (computerMove != 0)
             {
                 return computerMove;
