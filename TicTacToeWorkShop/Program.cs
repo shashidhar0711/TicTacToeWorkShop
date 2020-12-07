@@ -20,7 +20,7 @@ namespace TicTacToeWorkShop
             char userLetter = ticTacToeRepo.ChooseUserChoice();
             Console.WriteLine("Check if won "+ ticTacToeRepo.IsWinner(board,userLetter));
             char computerLetter = (userLetter == 'X') ? 'O' : 'X';
-            int computerMove = ticTacToeRepo.GetComputerMove(board, computerLetter);
+            int computerMove = ticTacToeRepo.GetComputerMove(board, computerLetter, userLetter);
         }
     }
 }
