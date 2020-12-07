@@ -40,6 +40,7 @@ namespace TicTacToeWorkShop
                 }
                 if (gameStatus.Equals(GameStatus.CONTINUE))
                     continue;
+                if(TicTacToeGameRepo.PlayAgain()) goto PlayAgain;
                 gameIsPlaying = false;
             }
         }

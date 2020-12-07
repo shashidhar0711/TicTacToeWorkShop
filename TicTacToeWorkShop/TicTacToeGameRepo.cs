@@ -18,12 +18,16 @@ namespace TicTacToeWorkShop
             USER, COMPUTER
         };
 
+        /// <summary>
+        /// Enumeration types of game status
+        /// </summary>
         public enum GameStatus
         {
             WON, FULL_BOARD, CONTINUE
         };
 
         /// <summary>
+        /// UC1
         /// Creates the tic tac toe board.
         /// </summary>
         /// <returns></returns>
@@ -38,6 +42,7 @@ namespace TicTacToeWorkShop
         }
 
         /// <summary>
+        /// UC2
         /// Chooses the user choice.
         /// </summary>
         /// <returns></returns>
@@ -49,6 +54,7 @@ namespace TicTacToeWorkShop
         }
 
         /// <summary>
+        /// UC3
         /// Shows the board.
         /// </summary>
         /// <param name="board">The board.</param>
@@ -63,6 +69,7 @@ namespace TicTacToeWorkShop
         }
 
         /// <summary>
+        /// UC4
         /// Gets the user desired move.
         /// </summary>
         /// <param name="board">The board.</param>
@@ -99,6 +106,7 @@ namespace TicTacToeWorkShop
         }
 
         /// <summary>
+        /// UC5
         /// Makes the move.
         /// </summary>
         /// <param name="board">The board.</param>
@@ -114,6 +122,7 @@ namespace TicTacToeWorkShop
         }
 
         /// <summary>
+        /// UC6
         /// Gets the who starts first.
         /// </summary>
         /// <returns></returns>
@@ -136,6 +145,7 @@ namespace TicTacToeWorkShop
         }
 
         /// <summary>
+        /// UC7
         /// Determines whether the specified board is winner.
         /// </summary>
         /// <param name="board">The board.</param>
@@ -156,6 +166,11 @@ namespace TicTacToeWorkShop
         }
 
         /// <summary>
+        /// UC8 On Computer getting its turn would like the computer to play like me.
+        /// UC9 Check if my Opponent can win then play to block it.
+        /// UC10 Choice would be to take one of the available corners.
+        /// UC11 My Subsequent Choices will be corners if not available then take the centre and
+        /// Lastly any of the available sides.
         /// Gets the computer move.
         /// </summary>
         /// <param name="board">The board.</param>
@@ -228,6 +243,7 @@ namespace TicTacToeWorkShop
         }
 
         /// <summary>
+        /// UC10
         /// Gets the random move from list.
         /// </summary>
         /// <param name="board">The board.</param>
@@ -283,6 +299,20 @@ namespace TicTacToeWorkShop
                     return false;
             }
             return true;
+        }
+
+        /// <summary>
+        /// UC13
+        /// Plays the again.
+        /// </summary>
+        /// <returns></returns>
+        public static bool PlayAgain()
+        {
+            Console.WriteLine("Do you want to Play Again? (yes/no)");
+            string option = Console.ReadLine().ToLower();
+            if (option.Equals("yes"))
+                return true;
+            return false;
         }
     }
 }
