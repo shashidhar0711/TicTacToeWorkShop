@@ -14,13 +14,34 @@ namespace TicTacToeWorkShop
             Console.WriteLine("Welcome to tictactoe workshop");
             TicTacToeGameRepo ticTacToeRepo = new TicTacToeGameRepo();
             char[] board = ticTacToeRepo.CreateTicTacToeBoard();
-            ticTacToeRepo.ShowBoard(board);
-            ticTacToeRepo.GetUserDesiredMove(board);
-            Player player = GetWhoStartsFirst();
             char userLetter = ticTacToeRepo.ChooseUserChoice();
             char computerLetter = (userLetter == 'X') ? 'O' : 'X';
-            Console.WriteLine("Check if won " + ticTacToeRepo.IsWinner(board, userLetter));
-            int computerMove = ticTacToeRepo.GetComputerMove(board, computerLetter, userLetter);
+            Player player = GetWhoStartsFirst();
+            bool gameIsPlaying = true;
+            GameStatus gameStatus;
+            while (gameIsPlaying)
+            {
+                /// Player turns
+                if (player.Equals(Player.USER))
+                {
+                    ticTacToeRepo.ShowBoard(board);
+                    int userMove = ticTacToeRepo.GetUserDesiredMove(board);
+                    string wonMessage = "Hurray! You have won the game!";
+                    gameStatus = ticTacToeRepo.GetGameStatus(board, userMove, userLetter, wonMessage);
+                    player = Player.COMPUTER;
+                }
+                else
+                {
+                    /// Computer Turn
+                    string wonMessage = "The Computer has beaten you! You lose.";
+                    int computerMove = ticTacToeRepo.GetComputerMove(board, computerLetter, userLetter);
+                    gameStatus = ticTacToeRepo.GetGameStatus(board, computerMove, computerLetter, wonMessage);
+                    player = Player.USER;
+                }
+                if (gameStatus.Equals(GameStatus.CONTINUE))
+                    continue;
+                gameIsPlaying = false;
+            }
         }
     }
 }

@@ -18,6 +18,11 @@ namespace TicTacToeWorkShop
             USER, COMPUTER
         };
 
+        public enum GameStatus
+        {
+            WON, FULL_BOARD, CONTINUE
+        };
+
         /// <summary>
         /// Creates the tic tac toe board.
         /// </summary>
@@ -236,6 +241,48 @@ namespace TicTacToeWorkShop
                     return moves[index];
             }
             return 0;
+        }
+
+        /// <summary>
+        /// UC12
+        /// Gets the game status.
+        /// </summary>
+        /// <param name="board">The board.</param>
+        /// <param name="move">The move.</param>
+        /// <param name="letter">The letter.</param>
+        /// <param name="wonMessage">The won message.</param>
+        /// <returns></returns>
+        public GameStatus GetGameStatus(char[] board, int move, char letter, string wonMessage)
+        {
+            MakeMove(board, move, letter);
+            if (IsWinner(board, letter))
+            {
+                ShowBoard(board);
+                Console.WriteLine(wonMessage);
+                return GameStatus.WON;
+            }
+            if (IsBoardFull(board))
+            {
+                ShowBoard(board);
+                Console.WriteLine("Game is Tie");
+                return GameStatus.FULL_BOARD;
+            }
+            return GameStatus.CONTINUE;
+        }
+
+        /// <summary>
+        /// Check Board is full
+        /// </summary>
+        /// <param name="board"></param>
+        /// <returns></returns>
+        public static bool IsBoardFull(char[] board)
+        {
+            for (int index = 1; index < board.Length; index++)
+            {
+                if (IsSpaceFree(board, index))
+                    return false;
+            }
+            return true;
         }
     }
 }
