@@ -167,6 +167,12 @@ namespace TicTacToeWorkShop
             {
                 return userWinningMove;
             }
+            int[] cornerMoves = { 1, 3, 7, 9 };
+            int computerMove = GetRandomMoveFromList(board, cornerMoves);
+            if (computerMove != 0)
+            {
+                return computerMove;
+            }
             return 0;
         }
 
@@ -204,6 +210,22 @@ namespace TicTacToeWorkShop
             char[] boardCopy = new char[10];
             Array.Copy(board, 0, boardCopy, 0, board.Length);
             return boardCopy;
+        }
+
+        /// <summary>
+        /// Gets the random move from list.
+        /// </summary>
+        /// <param name="board">The board.</param>
+        /// <param name="moves">The moves.</param>
+        /// <returns></returns>
+        public static int GetRandomMoveFromList(char[] board, int[] moves)
+        {
+            for (int index = 0; index < moves.Length; index++)
+            {
+                if (IsSpaceFree(board, moves[index]))
+                    return moves[index];
+            }
+            return 0;
         }
     }
 }
