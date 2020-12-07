@@ -136,7 +136,7 @@ namespace TicTacToeWorkShop
         /// <param name="symbol">The symbol.</param>
         /// <returns>
         ///   <c>true</c> if the specified board is winner; otherwise, <c>false</c>.
-        /// </returns>
+        /// </returns>  
         public bool IsWinner(char[] board, char symbol)
         {
             return (board[1] == symbol && board[2] == symbol && board[3] == symbol) ||
@@ -147,6 +147,58 @@ namespace TicTacToeWorkShop
                    (board[3] == symbol && board[6] == symbol && board[9] == symbol) ||
                    (board[1] == symbol && board[5] == symbol && board[9] == symbol) ||
                    (board[3] == symbol && board[5] == symbol && board[7] == symbol);
+        }
+
+        /// <summary>
+        /// Gets the computer move.
+        /// </summary>
+        /// <param name="board">The board.</param>
+        /// <param name="computerLetter">The computer letter.</param>
+        /// <returns></returns>
+        public int GetComputerMove(char[] board, char computerLetter)
+        {
+            int winningMove = GetWinningMove(board, computerLetter);
+            if (winningMove != 0)
+            {
+                return winningMove;
+            }
+            return 0;
+        }
+
+        /// <summary>
+        /// Gets the winning move.
+        /// </summary>
+        /// <param name="board">The board.</param>
+        /// <param name="computerLetter">The computer letter.</param>
+        /// <returns></returns>
+        private int GetWinningMove(char[] board, char computerLetter)
+        {
+            for (int index = 1; index < board.Length; index++)
+            {
+                char[] copyOfBoard = GetCopyOfBoard(board);
+                if (IsSpaceFree(copyOfBoard, index))
+                {
+                    MakeMove(copyOfBoard, index, computerLetter);
+                    if (IsWinner(copyOfBoard, computerLetter))
+                    {
+                        return index;
+                    }
+                }
+            }
+            return 0;
+
+        }
+
+        /// <summary>
+        /// Gets the copy of board.
+        /// </summary>
+        /// <param name="board">The board.</param>
+        /// <returns></returns>
+        public char[] GetCopyOfBoard(char[] board)
+        {
+            char[] boardCopy = new char[10];
+            Array.Copy(board, 0, boardCopy, 0, board.Length);
+            return boardCopy;
         }
     }
 }
